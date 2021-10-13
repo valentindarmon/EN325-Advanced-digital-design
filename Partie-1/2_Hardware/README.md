@@ -144,7 +144,7 @@ while odata_en = '0' loop
     idata_en <= '0';
     wait 10 ns;
 end loop;
-ASSERT UNSIGNED( odata = TO_UNSIGNED( 6, 32) ) SEVERITY ERROR;
+ASSERT UNSIGNED( odata ) = TO_UNSIGNED( 6, 32) SEVERITY ERROR;
 ```
 
 - [x] Executez votre programme et faites un copier-coller des informations affichées dans votre terminal directement dans votre testbench.
