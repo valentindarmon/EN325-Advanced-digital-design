@@ -73,6 +73,9 @@ Vous venez de récolter un nombre important de mesures. Il est temps d’en fair
 
 Maintenant que vous maitrisez l’implantation des opérations entières, vous allez étudier les opérateurs flottants. Pour commencer, vous allez essayer de comprendre la manière dont est réalisé une multiplication flottante entre deux nombres. Le format de codage des nombres flottants sur 32 bits est décrit dans la figure suivante :
 
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/Single-Precision-IEEE-754-Floating-Point-Standard.jpg)
+
 Pour vous aider dans votre travail vous avez à votre disposition le code VHDL décrivant l’opération de multiplication disponible ici ainsi que divers documents disponibles sur internet.
 - Analysez le code VHDL de l’opérateur de multiplication afin de retrouver la description algorithmique de l’opération.
 - Dessinez l’architecture matérielle mise en œuvre dans le code VHDL.
