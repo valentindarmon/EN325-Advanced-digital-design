@@ -1,11 +1,11 @@
 CC=gcc
-LDFLAGS=-lm
 EXEC=main
 SRC=./src/main.c
 
-OBJ= $(SRC:.c=.o)
+CFLAGS=-O2 -Wall -std=c++11
+LDFLAGS=-lm
 
-CFLAGS=-O2 -Wall
+OBJ= $(SRC:.c=.o)
 
 all: $(EXEC)
 
@@ -18,7 +18,5 @@ main: $(OBJ)
 .PHONY: clean mrproper
 
 clean: $(OBJ)
-	find . -name *.o -delete
-
-mrproper: clean
-	rm $(EXEC)
+	find . -name "*.o"         -delete
+	find . -name ./bin/$(EXEC) -delete
