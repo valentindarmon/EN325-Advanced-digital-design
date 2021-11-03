@@ -6,6 +6,9 @@ EXEC=main
 
 SRC=./src/color/RGB2YUV.cpp \
 	./src/color/YUV2RGB.cpp \
+	./src/tools/analysis.cpp \
+	./src/tools/converter.cpp \
+	./src/tools/img_diff.cpp \
 	./src/main.cpp
 	
 OBJ= $(SRC:.cpp=.o)
@@ -20,6 +23,6 @@ main: $(OBJ)
 
 .PHONY: clean mrproper
 
-clean: $(OBJ)
+clean:
 	find . -name "*.o" -delete
 	find ./bin/$(EXEC) -delete

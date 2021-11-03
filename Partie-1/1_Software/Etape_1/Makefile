@@ -17,6 +17,6 @@ main: $(OBJ)
 
 .PHONY: clean mrproper
 
-clean: $(OBJ)
+clean:
 	find . -name "*.o"         -delete
 	find . -name ./bin/$(EXEC) -delete
