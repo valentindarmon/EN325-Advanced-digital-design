@@ -9,7 +9,6 @@ OBJ= $(SRC:.cpp=.o)
 CFLAGS=
 
 all: $(EXEC)
-	./bin/main
 
 main: $(OBJ)
 	$(CC) $(CFLAGS) -o ./bin/$@ $^ $(LDFLAGS)
@@ -20,7 +19,8 @@ main: $(OBJ)
 .PHONY: clean mrproper
 
 clean: $(OBJ)
-	rm ./src/main.o
+	find . -name "*.o" -delete
+	find ./bin/$(EXEC) -delete
 
 mrproper: clean
 	rm $(EXEC)

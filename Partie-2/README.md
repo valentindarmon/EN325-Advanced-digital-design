@@ -66,7 +66,7 @@ A vous de jouer :
 -	Ajouter les fonctions que vous avez décrites.
 -	Compilez le programme et executez le.
 -	Vérifiez que l'image générée est conforme.
--	NOT YET Analysez les images présentant les différences entre les images et expliquez les.
+-	Analysez les images présentant les différences entre les images et expliquez les.
 Vous aurez remarqué à la fin de la simulation qu'un nombre important d'informations est affiché dans le terminal. Ces informations sont des métriques mathématiques permettant d'évaluer les dégradations induites par vos transformations sur l'image de sortie. Cela vous permettra dans les questions suivantes d'évaluer la pertinence de vos décisions (ou les bugs éventuels).
 
 ##	Q3. Raffinement des interfaces des fonctions

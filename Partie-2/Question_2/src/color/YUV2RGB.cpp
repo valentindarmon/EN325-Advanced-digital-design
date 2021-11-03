@@ -14,27 +14,25 @@
  * limitations under the License.
  */
 
-#include <cstdio>
-#include <cstdlib>
-#include <cstdint>
+#include "YUV2RGB.hpp"
 
-void RGB2YUV(const int32_t din[192], int32_t dout[192])
+//
+// Usefull macro functions
+//
+
+void YUV2RGB(const int32_t din[192], int32_t dout[192])
 {
 
 }
 
-void RGB2YUV(const uint8_t din[192], int32_t dout[192])
+void YUV2RGB(const int32_t din[192], uint8_t dout[192])
 {
     int32_t conv[3];
     for(int32_t k = 0; k < 192; k += 3)
     {
-#if 0
-        for(int i = 0; i < 3; i++) dout[k+i] = din[k+i];
-#else
-        conv[0] = din[k+0];
-        conv[1] = din[k+1];
-        conv[2] = din[k+2];
-        RGB2YUV(conv, dout + k);
-#endif
+        YUV2RGB(din + k, conv);
+
+        for(int32_t i = 0; i < 3; i++)                 // Conversion des donnees de type int32_t
+            dout[k+i] = conv[i] > 255 ? 255 : conv[i]; // en données de type uint8_t
     }
 }

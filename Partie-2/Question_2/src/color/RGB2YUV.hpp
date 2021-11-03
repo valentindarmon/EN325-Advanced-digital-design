@@ -17,20 +17,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <cstdint>
+#include <cmath>
 
-void YUV2RGB(const int32_t din[192], int32_t dout[192])
-{
-
-}
-
-void YUV2RGB(const int32_t din[192], uint8_t dout[192])
-{
-    int32_t conv[3];
-    for(int32_t k = 0; k < 192; k += 3)
-    {
-        YUV2RGB(din + k, conv);
-        dout[k+0] = conv[0] < 0 ? 0 : conv[0];
-        dout[k+1] = conv[1] < 0 ? 0 : conv[1];
-        dout[k+2] = conv[2] < 0 ? 0 : conv[2];
-    }
-}
+extern void RGB2YUV(const int32_t din[  3], int32_t dout[  3]);
+extern void RGB2YUV(const uint8_t din[192], int32_t dout[192]);

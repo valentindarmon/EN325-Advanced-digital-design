@@ -10,10 +10,13 @@
 #include <getopt.h>
 #include <iostream>
 
+#include "./tools/bmp.hpp"
+#include "./tools/analysis.hpp"
+#include "./tools/converter.hpp"
+#include "./tools/img_diff.hpp"
 
-#include "bmp.hpp"
-#include "RGB2YUV.hpp"
-#include "YUV2RGB.hpp"
+#include "./color/RGB2YUV.hpp"
+#include "./color/YUV2RGB.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -21,7 +24,7 @@ int main(int argc, char* argv[])
 	// On charge l'image BMP en entrée du systeme
 	//
 
-    BMP pic_in ("./ImageEntree.bmp");
+    BMP pic_in ("./PictureIn.bmp");
 
 
     //
@@ -40,19 +43,8 @@ int main(int argc, char* argv[])
     //
 
     uint8_t* ptr_in_rgb  = (uint8_t*)malloc(bytes * sizeof(uint8_t));
-    uint8_t* ptr_w_rgb   = ptr_in_rgb;
 
-    for(int32_t y = 0; y < height; y += 8){
-        for(int32_t x = 0; x < width; x += 8){
-            for(int32_t yy = 0; yy < 8; yy++){
-                for(int32_t xx = 0; xx < 8; xx++){
-                    (*ptr_w_rgb++) = pic_in.get_pixel_r(x + xx, y + yy);
-                    (*ptr_w_rgb++) = pic_in.get_pixel_g(x + xx, y + yy);
-                    (*ptr_w_rgb++) = pic_in.get_pixel_b(x + xx, y + yy);
-                }
-            }
-        }
-    }
+    convert(ptr_in_rgb, pic_in);
 
 
     //
@@ -70,12 +62,6 @@ int main(int argc, char* argv[])
 
     BMP pic_out(width, height);
 
-
-    //
-    // On cree un buffer temporaire pour memoriser les données
-    // post-encodeur afin de pouvoir finaliser a posteriori la
-    // compression JPEG (Huffman, header, etc...)
-    //
 
     //
     // On declare proprement les buffers nécessaires entre les
@@ -101,18 +87,7 @@ int main(int argc, char* argv[])
     // MB en un flux de pixel represenant une image RGB classique
     //
 
-    uint8_t* ptr_r_rgb = ptr_ou_rgb;
-    for(int32_t y = 0; y < height; y += 8){
-        for(int32_t x = 0; x < width; x += 8){
-            for(int32_t yy = 0; yy < 8; yy++){
-                for(int32_t xx = 0; xx < 8; xx++){
-                    pic_out.set_pixel_r(x + xx, y + yy, (*ptr_r_rgb++));
-                    pic_out.set_pixel_g(x + xx, y + yy, (*ptr_r_rgb++));
-                    pic_out.set_pixel_b(x + xx, y + yy, (*ptr_r_rgb++));
-                }
-            }
-        }
-    }
+    convert(pic_out, ptr_ou_rgb);
 
 
     //
@@ -121,7 +96,11 @@ int main(int argc, char* argv[])
     // inverses sont bien codées.
     //
 
-    pic_out.write( "SavePicture.bmp" );
+    analysis(pic_in, pic_out);
+
+    img_diff(pic_in, pic_out);
+
+    pic_out.write( "PictureOut.bmp" );
 
     return EXIT_SUCCESS;
 }
