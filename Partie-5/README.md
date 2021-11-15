@@ -46,7 +46,7 @@ Maintenant à vous de jouer :
 
 Une fois que votre code VHDL a été validé fonctionnellement et temporellement en simulation grace à Vivado, vous pouvez passer à l'étape suivante.
 
-# Q2. Simulation conjointe avec ModelSim
+# Q2. Validation plus poussée ;-)
 
 Les tests que vous avez appliqué sur votre composant VHDL sont minimalistes et ne permettent pas vraiment de garantir le bon fonctionnement de votre circuit. L'idéal aurait été pouvoir rejouter les tests précédents pour garantir la bonne fonctionnalité.
 
