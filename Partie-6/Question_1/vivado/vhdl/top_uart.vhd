@@ -63,8 +63,28 @@ ARCHITECTURE Behavioral OF top_uart IS
 	SIGNAL   data_to_uart      : STD_LOGIC_VECTOR (23 downto 0);
 	SIGNAL   data_to_uart_en   : STD_LOGIC;
 
-	SIGNAL   RESET : STD_LOGIC;
+	SIGNAL   counter           : UNSIGNED (15 downto 0) := (others=>'0');
 
+	SIGNAL   input_data        : UNSIGNED (15 downto 0) := (others=>'0');
+	SIGNAL   output_data       : UNSIGNED (15 downto 0) := (others=>'0');
+
+	SIGNAL   started           : STD_LOGIC;
+	SIGNAL   dec_read_llr      : STD_LOGIC;
+	SIGNAL   dec_read_fb       : STD_LOGIC;
+	SIGNAL   uart_is_sending   : STD_LOGIC;
+
+	SIGNAL   loading_fb        : STD_LOGIC_VECTOR (0 downto 0);
+	SIGNAL   loading_llr       : STD_LOGIC_VECTOR (0 downto 0);
+	SIGNAL   sending_sn        : STD_LOGIC_VECTOR (0 downto 0);
+
+	SIGNAL   fifo_llr_to_dec   : STD_LOGIC_VECTOR (5 downto 0);
+	SIGNAL   fifo_fb_to_dec    : STD_LOGIC_VECTOR (0 downto 0);
+
+	SIGNAL   fifo_out_full     : STD_LOGIC;
+	SIGNAL   fifo_out_ready    : STD_LOGIC;
+
+	SIGNAL   eUART : STD_LOGIC;
+	SIGNAL   RESET : STD_LOGIC;
 BEGIN
 
     RESET <= NOT nRESET;

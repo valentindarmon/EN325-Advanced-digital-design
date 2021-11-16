@@ -18,7 +18,6 @@ Ce travail a déjà été réalisé pour vous. Afin de générer le bitstream pe
 Pendant que la synthèse du système s'exécute, prenez le temps de dessiner l'architecture du système qui va être mise en oeuvre dans le FPGA.
 
 Une fois la synthèse terminée, connectez une carte de type Nexys 4 à l'ordinateur et charger le bitstream dans le FPGA afin de le configurer.
-
 ##	Q2. Validation fonctionnelle (2/2)
 
 Maintenant que la cible matérielle est prête, il ne vous reste plus qu'à lancer la simulation de votre système décrit en C/C++. Pour transmettre les informations du programme code C/C++ au FPGA, la partie de code liée à la conversion a été modifiée.
