@@ -76,10 +76,9 @@ void RGB2YUV(const uint8_t din[3], uint8_t dout[3])
         exit( EXIT_FAILURE );
     }
 
-    int rBytes = read( fileDescriptor, dout, 192);
-    if( rBytes != 192 )
-    {
-        printf("(EE) Erreur a la reception des données (%d != %d)\n", rBytes, 192);
-        exit( EXIT_FAILURE );
-    }
+    int reste = 192;
+    do{
+        int rBytes = read( fileDescriptor, dout + (192 - reste), reste);
+        reste -= rBytes;
+    }while( reste != 0 );
 }
