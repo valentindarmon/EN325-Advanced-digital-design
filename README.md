@@ -29,7 +29,7 @@ https://github.com/blegal/EN325-Advanced-digital-design
 Pour ceux qui sont sous Linux ou ceux qui adorent les terminaux, le plus simple est d'ouvrir un terminal. Une fois dans le repertoire ou vous souhaitez créer le projet, tapez la commande suivante:
 
 ```
-git clone https://github.com/blegal/EN224-Test-et-verification.git
+git clone https://github.com/blegal/EN325-Advanced-digital-design.git
 ```
 
 ## Edition et simulation de VHDL sous MacOS (Linux)
