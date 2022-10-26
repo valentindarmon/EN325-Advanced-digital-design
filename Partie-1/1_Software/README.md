@@ -58,7 +58,7 @@ Maintenant que vous avez testé manuellement votre fonction, nous allons utilise
 
 - [X] Vous vous **assurerez** que les résultats sont corrects.
 
-- [X] Que se passe t'il si vous augmentez le nombre de valeurs testées à 2000 ? Si rien d'étrange ne se produit augmentez le nombre de tests jusqu'à 200000...
+- [X] Que se passe t'il si vous augmentez le nombre de valeurs testées à 2000 ? Si rien d'étrange ne se produit augmentez le nombre de tests jusqu'à 200000...    
 
 - [X] Corrigez ce petit défaut de conception.
 

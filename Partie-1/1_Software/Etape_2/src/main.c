@@ -21,7 +21,11 @@
 #include "stdlib.h"
 #include "math.h"
 #include "assert.h"
+#include "time.h"
 
+int getRand(){
+	return rand()%65535+1; //returns a rand int between 0 and 65535
+}
 int PGCD(int A, int B)
 {
 	if (A<1 || B<1) {
@@ -38,17 +42,14 @@ int PGCD(int A, int B)
 }
 
 int main (int argc, char * argv []){
+	srand( time( NULL ) );
 	printf("(II) Starting PGCD program\n");
 
-	printf("0 et 0 : %d \n", PGCD(0,0));
-	printf("1 et 0 : %d \n", PGCD(0,0));
-	printf("0 et 1 : %d \n", PGCD(0,0));
-	printf("65535 et 65535 : %d \n", PGCD(65535,65535));
-	printf("65535 et 15456 : %d \n", PGCD(65535,15456));
-	printf("89 et 117 : %d \n", PGCD(117,89));
-	printf("117 et 89 : %d \n", PGCD(89,117));
-	printf("4096 et 128 : %d \n", PGCD(0,0));
-	printf("-1 et 1 : %d \n", PGCD(-1,1));
+	for(int i=0;i<10000;i++) {
+		int a = getRand();
+		int b = getRand();
+		printf("PGCD de %d et %d donne %d\n",a,b,PGCD(a,b));
+	}
 
 	printf("(II) End of PGCD program\n");
   return 0;
