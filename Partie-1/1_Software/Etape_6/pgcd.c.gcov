@@ -1,0 +1,48 @@
+        -:    0:Source:src/pgcd.c
+        -:    0:Graph:./src/pgcd.gcno
+        -:    0:Data:./src/pgcd.gcda
+        -:    0:Runs:1
+        -:    1:#include "pgcd.h"
+        -:    2:#include <stdio.h>
+        -:    3:#include <assert.h>
+        -:    4:
+      107:    5:int PGCD(int A, int B)
+        -:    6:{
+        -:    7:	int firstA=A;
+        -:    8:	int firstB=B;
+        -:    9:	
+     107*:   10:	assert(A>0);
+     107*:   11:	assert(B>0);
+     107*:   12:	assert(B<655536);
+     107*:   13:	assert(A<655365);
+        -:   14:
+     5458:   15:	while(A!=B) {
+     5351:   16:		if (A>B) {
+     2668:   17:			A=A-B;
+        -:   18:		} else {
+     2683:   19:			B=B-A;
+        -:   20:		}
+        -:   21:	}
+        -:   22:
+     107*:   23:	assert(firstA>=A);
+     107*:   24:	assert(firstB>=B);
+     107*:   25:	assert(A>=1);
+     107*:   26:	assert(firstA%A==0);
+     107*:   27:	assert(firstA%B==0);
+      107:   28:	return A;
+        -:   29:}
+        -:   30:
+      107:   31:int PGCD2(int N1, int N2) {
+      107:   32:	if (N1<1 || N2<1) {
+        -:   33:		return 0;
+        -:   34:	}
+        -:   35:	int a1=N1;
+        -:   36:	int a2=N2;
+        -:   37:	int temp;
+     1082:   38:	while(a2>0) {
+        -:   39:		temp = a1;
+        -:   40:		a1 = a2;
+      975:   41:		a2 = temp%a2;
+        -:   42:	}
+        -:   43:	return a1;
+        -:   44:}

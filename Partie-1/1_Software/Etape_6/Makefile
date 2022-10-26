@@ -1,9 +1,9 @@
 CC=gcc
 EXEC=main
-SRC=./src/main.c /
+SRC=./src/main.c \
 	./src/pgcd.c
 
-CFLAGS=-O2 -Wall -std=c++11
+CFLAGS=-O2 -Wall -std=c++11 -fprofile-arcs -ftest-coverage
 LDFLAGS=-lm
 
 OBJ= $(SRC:.c=.o)

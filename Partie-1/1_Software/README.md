@@ -170,7 +170,7 @@ Une fois la description des séquences de test éffectuées:
 
 ## Etape 8
 
-Pour le moment vous avez codé manuellement les valeurs de test apres avoir idéntifié un couple de valeurs puis calculé le résultat attendu. L'approche est éfficace, cependant elle s'avere chronophage si l'on souhaite tester un grand nombre de valeurs.
+Pour le moment vous avez codé manuellement les valeurs de test apres avoir idéntifié un couple de valeurs puis calculé le résultat attendu. L'approche est efficace, cependant elle s'avère chronophage si l'on souhaite tester un grand nombre de valeurs.
 
 Afin de simplifier la conception des procédures de test, on utilise quand cela est possible des valeurs provenant de modeles de référence via par exemple l'utilisation de fichiers externes.
 
@@ -178,7 +178,7 @@ Les valeurs présentes dans les fichiers externes (données de référence) sont
 
 Dans le cas présent, vous allez:
 
-- [X] Utiliser à votre convenance, *Matlab*, *Excel*, *OpenOffice* ou *LibreOffice* pour générer 65536 triplets ([**A**], [**B**], [**résultat**]).
+- [X] Utiliser à votre convenance, *Matlab*, *Excel*, *OpenOffice* ou *	LibreOffice* pour générer 65536 triplets ([**A**], [**B**], [**résultat**]).
 
 - [X] Stocker ces données dans 3 fichers de type texte. Ces fichiers seront nommés [**ref_A.txt**], [**ref_B.txt**] et [**ref_C.txt**].
 
